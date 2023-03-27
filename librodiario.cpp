@@ -35,19 +35,19 @@ int libroDiario::getCuenta4()
     return this->cuenta4;
 }
 //Metodos set de los valores de las cuentas
-void libroDiario::setValor1(int first)
+void libroDiario::setValor1(double first)
 {
     this->valor1=first;
 }
-void libroDiario::setValor2(int second)
+void libroDiario::setValor2(double second)
 {
     this->valor2=second;
 }
-void libroDiario::setValor3(int third)
+void libroDiario::setValor3(double third)
 {
     this->valor3=third;
 }
-void libroDiario::setValor4(int fourth)
+void libroDiario::setValor4(double fourth)
 {
     this->valor4=fourth;
 }
@@ -67,4 +67,38 @@ double libroDiario::getValor3()
 double libroDiario::getValor4()
 {
     return this->valor4;
+}
+//metodos set de los indices de las clasificacion de cuentas
+void libroDiario::setClasf1(int one)
+{
+    this->clasf1=one;
+}
+void libroDiario::setClasf2(int two)
+{
+    this->clasf2=two;
+}
+void setClasf3(int three)
+{
+    this->clasf3=three;
+}
+void setClasf4(int four)
+{
+    this->clasf4=four;
+}
+ //metodos get de los indices de las clasificacion de cuentas
+int getClasf1()
+{
+    return this->clasf1;
+}
+int getClasf2()
+{
+    return this->clasf2;
+}
+int getClasf3()
+{
+    return this->clasf3;
+}
+int getClasf4()
+{
+    return this->clasf4;
 }
