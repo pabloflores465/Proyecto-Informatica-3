@@ -37,5 +37,7 @@ public:
     double getValor3();
     double getValor4();
 
+};
+
 
 #endif // LIBRODIARIO_H
