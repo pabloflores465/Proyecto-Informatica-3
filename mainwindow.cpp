@@ -125,15 +125,19 @@ void MainWindow::on_pushButton_clicked()
 
 
 //banderas para inicializar el valor del debe y del haber
-int b=0;
+int b[19]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+
+//arreglo para gurdar los totales de las cuentas
+double total[19];
 void MainWindow::on_pushButton_2_clicked()
 {
     //variables del debe y haber
-    double db=0;
-    double hb=0;
+    double db[19]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    double hb[19]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
     //bandera para evitar que se vuelva a colocar la cuenta
-    int num=0;
+    int num[19]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     for (int i=0;i<100;i++)
     {
 
@@ -152,48 +156,98 @@ void MainWindow::on_pushButton_2_clicked()
                         //debe
                         if(indiceClasCuentas[j]==0)
                         {
-                            if (b==0)
+                            if (b[0]==0)
                             {
-                                db=montoCuentas[0];
-                                b++;
+                                db[0]=montoCuentas[0];
+                                b[0]++;
                             }
                             else
                             {
-                                db=db+montoCuentas[j];
+                                db[0]=db[0]+montoCuentas[j];
                             }
                         }
                         //haber
                         else
                         {
-                            if(b==0)
+                            if(b[0]==0)
                             {
-                                hb=montoCuentas[0];
-                                b++;
+                                hb[0]=montoCuentas[0];
+                                b[0]++;
                             }
                             else
                             {
-                                hb=hb+montoCuentas[j];
+                                hb[0]=hb[0]+montoCuentas[j];
                             }
                         }
                     }
 
                 }
-                if(num==0)
+                if(num[0]==0)
                 {
 
-                    double res=(db-hb);
-                    QString Qres=QString::number(res);
-                    ui->activosUi->addItem("Bancos: "+Qres);
-                    num++;
+                    total[0]=(db[0]-hb[0]);
+                    num[0]++;
+
                 }
 
                 break;
 
             }
+        case 2:
+        {
+            for(int j=0;j<100;j++)
+            {
+
+
+                if(indiceCuentas[j]==2)
+                {
+                    //debe
+                    if(indiceClasCuentas[j]==0)
+                    {
+                        if (b[0]==0)
+                        {
+                            db[1]=montoCuentas[0];
+                            b[0]++;
+                        }
+                        else
+                        {
+                            db[1]=db[1]+montoCuentas[j];
+                        }
+                    }
+                    //haber
+                    else
+                    {
+                        if(b[0]==0)
+                        {
+                            hb[1]=montoCuentas[0];
+                            b[0]++;
+                        }
+                        else
+                        {
+                            hb[1]=hb[1]+montoCuentas[j];
+                        }
+                    }
+                }
+
+            }
+            if(num[1]==0)
+            {
+
+                total[1]=(db[1]-hb[1]);
+                num[1]++;
+
+            }
+
+        }
 
 
 
         }
     }
+
+    QString Qres1=QString::number(total[0]);
+     QString Qres2=QString::number(total[1]);
+    ui->activosUi->addItem("Bancos: "+Qres1);
+    ui->activosUi->addItem("Iva por cobrar: "+Qres2);
 
 }
