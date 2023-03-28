@@ -22,6 +22,10 @@ private:
     int clasf4;
 
 public:
+    //Constructor
+    libroDiario();
+    //Destructor
+    ~libroDiario(){}
     //Metodos set de los indices de las cuentas
     void setCuenta1(int primera);
     void setCuenta2(int segunda);
