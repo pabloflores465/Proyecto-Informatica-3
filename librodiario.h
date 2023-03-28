@@ -15,6 +15,12 @@ private:
     double valor2;
     double valor3;
     double valor4;
+    //atributos de los indices de las cuentas
+    int clasf1;
+    int clasf2;
+    int clasf3;
+    int clasf4;
+
 public:
     //Metodos set de los indices de las cuentas
     void setCuenta1(int primera);
@@ -27,16 +33,25 @@ public:
     int getCuenta3();
     int getCuenta4();
     //Metodos set de los valores de las cuentas
-    void setValor1(int first);
-    void setValor2(int second);
-    void setValor3(int third);
-    void setValor4(int fourth);
+    void setValor1(double first);
+    void setValor2(double second);
+    void setValor3(double third);
+    void setValor4(double fourth);
     //Metodos get de los valores de las cuentas
     double getValor1();
     double getValor2();
     double getValor3();
     double getValor4();
-
+    //metodos set de los indices de las clasificacion de cuentas
+    void setClasf1(int one);
+    void setClasf2(int two);
+    void setClasf3(int three);
+    void setClasf4(int four);
+     //metodos get de los indices de las clasificacion de cuentas
+    int getClasf1();
+    int getClasf2();
+    int getClasf3();
+    int getClasf4();
 };
 
 
