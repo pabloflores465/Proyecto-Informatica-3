@@ -25,45 +25,73 @@ int indiceCuentas[100];
 double montoCuentas[100];
 //Arreglo para guardar el indice de las clasificaciones de cuentas
 int indiceClasCuentas[100];
-
+//Contadores para ver cuantos espacios tiene el arreglo
+int ver=0;
 void MainWindow::on_pushButton_clicked()
 {
 
     //objeto para acceder a la clase libroDiario
     libroDiario lib;
 
-    //Extracción de valores del formulario
-    int c1=ui->cta1Ui->currentIndex();
-    int c2=ui->cta2Ui->currentIndex();
-    int c3=ui->cta3Ui->currentIndex();
-    int c4=ui->cta4Ui->currentIndex();
 
-    int clf1=ui->clf1Ui->currentIndex();
-    int clf2=ui->clf2Ui->currentIndex();
-    int clf3=ui->clf3Ui->currentIndex();
-    int clf4=ui->clf3Ui_2->currentIndex();
+    int a=ui->cta1Ui->currentIndex();
+    int b=ui->cta2Ui->currentIndex();
+    int c=ui->cta3Ui->currentIndex();
+    int d=ui->cta4Ui->currentIndex();
+    if(a!=0)
+    {
+        //Extracción de valores del formulario
+        int c1=ui->cta1Ui->currentIndex();
+        int clf1=ui->clf1Ui->currentIndex();
+        double mtd1=ui->mtd1Ui->value();
+        //Al metodo set se le pasan los valores
+        lib.setCuenta1(c1);
+        lib.setValor1(mtd1);
+        lib.setClasf1(clf1);
+        ver++;
 
-    double mtd1=ui->mtd1Ui->value();
-    double mtd2=ui->mtd2Ui->value();
-    double mtd3=ui->mtd3Ui->value();
-    double mtd4=ui->mtd4Ui->value();
 
-    //Al metodo set se le pasan los valores
-    lib.setCuenta1(c1);
-    lib.setCuenta2(c2);
-    lib.setCuenta3(c3);
-    lib.setCuenta4(c4);
+    }
+    if (b!=0)
+    {
+        //Extracción de valores del formulario
+        int c2=ui->cta2Ui->currentIndex();
+        int clf2=ui->clf2Ui->currentIndex();
+        double mtd2=ui->mtd2Ui->value();
+        //Al metodo set se le pasan los valores
+        lib.setCuenta2(c2);
+        lib.setValor2(mtd2);
+        lib.setClasf2(clf2);
+        ver++;
 
-    lib.setValor1(mtd1);
-    lib.setValor2(mtd2);
-    lib.setValor3(mtd3);
-    lib.setValor4(mtd4);
 
-    lib.setClasf1(clf1);
-    lib.setClasf2(clf2);
-    lib.setClasf3(clf3);
-    lib.setClasf4(clf4);
+    }
+    if(c!=0)
+    {
+        //Extracción de valores del formulario
+        int c3=ui->cta3Ui->currentIndex();
+        int clf3=ui->clf3Ui->currentIndex();
+        double mtd3=ui->mtd3Ui->value();
+        //Al metodo set se le pasan los valores
+        lib.setCuenta3(c3);
+        lib.setValor3(mtd3);
+         lib.setClasf3(clf3);
+         ver++;
 
+    }
+    if(d!=0)
+    {
+        //Extracción de valores del formulario
+        int c4=ui->cta4Ui->currentIndex();
+        int clf4=ui->clf3Ui_2->currentIndex();
+        double mtd4=ui->mtd4Ui->value();
+        //Al metodo set se le pasan los valores
+        lib.setCuenta4(c4);
+        lib.setValor4(mtd4);
+         lib.setClasf4(clf4);
+         ver++;
+
+    }
     //Se llenan los arreglos
     //Indice de cuentas
     indiceCuentas[i]=lib.getCuenta1();
@@ -93,16 +121,17 @@ void MainWindow::on_pushButton_clicked()
     indiceClasCuentas[j]=lib.getClasf4();
     j++;
 }
-//Inica variables debe y haber
+
+
 
 //banderas para inicializar el valor del debe y del haber
-int b1=0;
-int b2=0;
+int b=0;
 void MainWindow::on_pushButton_2_clicked()
 {
+    //variables del debe y haber
     double db=0;
     double hb=0;
-    double res=0;
+
     //bandera para evitar que se vuelva a colocar la cuenta
     int num=0;
     for (int i=0;i<100;i++)
@@ -116,41 +145,43 @@ void MainWindow::on_pushButton_2_clicked()
             {
                 for(int j=0;j<100;j++)
                 {
-                    //debe
 
-                    if(indiceClasCuentas[j]==0)
+
+                    if(indiceCuentas[j]==1)
                     {
-                        if (b1==0)
+                        //debe
+                        if(indiceClasCuentas[j]==0)
                         {
-                            db=montoCuentas[0];
-                            b1++;
+                            if (b==0)
+                            {
+                                db=montoCuentas[0];
+                                b++;
+                            }
+                            else
+                            {
+                                db=db+montoCuentas[j];
+                            }
                         }
+                        //haber
                         else
                         {
-                            db=db+montoCuentas[j];
+                            if(b==0)
+                            {
+                                hb=montoCuentas[0];
+                                b++;
+                            }
+                            else
+                            {
+                                hb=hb+montoCuentas[j];
+                            }
                         }
-
-
-                    }
-                    else
-                    {
-                        if(b2==0)
-                        {
-                            hb=montoCuentas[0];
-                            b2++;
-                        }
-                        else
-                        {
-                            hb=hb+montoCuentas[j];
-                        }
-
-
                     }
 
                 }
                 if(num==0)
                 {
-                    res=db-hb;
+
+                    double res=(db-hb);
                     QString Qres=QString::number(res);
                     ui->activosUi->addItem("Bancos: "+Qres);
                     num++;
@@ -166,4 +197,3 @@ void MainWindow::on_pushButton_2_clicked()
     }
 
 }
-
