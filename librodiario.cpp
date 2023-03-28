@@ -77,28 +77,28 @@ void libroDiario::setClasf2(int two)
 {
     this->clasf2=two;
 }
-void setClasf3(int three)
+void libroDiario::setClasf3(int three)
 {
     this->clasf3=three;
 }
-void setClasf4(int four)
+void libroDiario::setClasf4(int four)
 {
     this->clasf4=four;
 }
  //metodos get de los indices de las clasificacion de cuentas
-int getClasf1()
+int libroDiario::getClasf1()
 {
     return this->clasf1;
 }
-int getClasf2()
+int libroDiario::getClasf2()
 {
     return this->clasf2;
 }
-int getClasf3()
+int libroDiario::getClasf3()
 {
     return this->clasf3;
 }
-int getClasf4()
+int libroDiario::getClasf4()
 {
     return this->clasf4;
 }
