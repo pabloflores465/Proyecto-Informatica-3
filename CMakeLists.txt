@@ -22,6 +22,7 @@ set(PROJECT_SOURCES
         librodiario.h
         librodiario.cpp
         libromayor.h
+        libroMayor.cpp
         librodiario.cpp
         balancegeneral.h
         balancegeneral.cpp

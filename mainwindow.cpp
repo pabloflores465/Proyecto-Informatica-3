@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "librodiario.h"
+#include "libroMayor.h"
 #include <iostream>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -749,6 +750,29 @@ void MainWindow::on_pushButton_2_clicked()
     ui->gastosUi->addItem("Depreciación de Vehiculo: "+Qres18);
     ui->gastosUi->addItem("Amortizacion Gastos de organización: "+Qres19);
     ui->gastosUi->addItem("Costo de ventas: "+Qres20);
+
+    //Se le pasan valores a los metodos set del libro mayor(totales)
+    libroMayor my;
+    my.setTotalesCt1(total[0]);
+    my.setTotalesCt2(total[1]);
+    my.setTotalesCt3(total[2]);
+    my.setTotalesCt4(total[3]);
+    my.setTotalesCt5(total[4]);
+    my.setTotalesCt6(total[5]);
+    my.setTotalesCt7(total[6]);
+    my.setTotalesCt8(total[7]);
+    my.setTotalesCt9(total[8]);
+    my.setTotalesCt10(total[9]);
+    my.setTotalesCt11(total[10]);
+    my.setTotalesCt12(total[11]);
+    my.setTotalesCt13(total[12]);
+    my.setTotalesCt14(total[13]);
+    my.setTotalesCt15(total[14]);
+    my.setTotalesCt16(total[15]);
+    my.setTotalesCt17(total[16]);
+    my.setTotalesCt18(total[17]);
+    my.setTotalesCt19(total[18]);
+    my.setTotalesCt20(total[19]);
 
 
 }
