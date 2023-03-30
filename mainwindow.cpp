@@ -751,6 +751,7 @@ void MainWindow::on_pushButton_2_clicked()
     ui->gastosUi->addItem("Amortizacion Gastos de organización: "+Qres19);
     ui->gastosUi->addItem("Costo de ventas: "+Qres20);
 
+
     //Se le pasan valores a los metodos set del libro mayor(totales)
     libroMayor my;
     my.setTotalesCt1(total[0]);
