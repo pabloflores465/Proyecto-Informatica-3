@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "librodiario.h"
-#include "libroMayor.h"
+#include "libromayor.h"
 #include <iostream>
 
 MainWindow::MainWindow(QWidget *parent)

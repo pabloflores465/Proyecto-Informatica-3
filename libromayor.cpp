@@ -1,4 +1,4 @@
-#include "libroMayor.h"
+#include "libromayor.h"
 
 //Constructor de la clase
 libroMayor::libroMayor()
