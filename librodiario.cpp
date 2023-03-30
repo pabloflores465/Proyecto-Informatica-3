@@ -1,5 +1,26 @@
 #include "librodiario.h"
 
+//Constructor
+
+libroDiario::libroDiario()
+{
+    //atributos de los indices de las cuentas
+    this->cuenta1=0;
+    this->cuenta2=0;
+    this->cuenta3=0;
+    this->cuenta4=0;
+    //atributos de los valores de las cuentas
+    this->valor1=0;
+    this->valor2=0;
+    this->valor3=0;
+    this->valor4=0;
+    //atributos de los indices de las cuentas
+    this->clasf1=0;
+    this->clasf2=0;
+    this->clasf3=0;
+    this->clasf4=0;
+}
+
 //Metodos set de los indices de las cuentas
 void libroDiario::setCuenta1(int primera)
 {
