@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+#include "login.h"
+
 namespace Ui {
 class Dialog;
 }
@@ -15,8 +17,14 @@ public:
     explicit Dialog(QWidget *parent = nullptr);
     ~Dialog();
 
+
+private slots:
+    void on_confirmarBBox_clicked();
+
 private:
     Ui::Dialog *ui;
+
+    logIn lI;
 };
 
 #endif // DIALOG_H
