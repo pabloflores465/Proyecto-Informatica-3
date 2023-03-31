@@ -22,7 +22,7 @@ set(PROJECT_SOURCES
         librodiario.h
         librodiario.cpp
         libromayor.h
-        libroMayor.cpp
+        libromayor.cpp
         librodiario.cpp
         balancegeneral.h
         balancegeneral.cpp
@@ -34,6 +34,9 @@ set(PROJECT_SOURCES
         login.cpp
         infousuario.h
         infousuario.cpp
+        dialog.cpp
+        dialog.h
+        dialog.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
