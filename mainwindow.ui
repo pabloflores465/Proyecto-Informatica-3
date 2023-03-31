@@ -19,8 +19,8 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>1071</width>
-      <height>562</height>
+      <width>1061</width>
+      <height>568</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -30,6 +30,57 @@
      <attribute name="title">
       <string>Documentación</string>
      </attribute>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>40</y>
+        <width>58</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>90</y>
+        <width>421</width>
+        <height>401</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QComboBox" name="comboBox"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="consultarButton">
+         <property name="text">
+          <string>Consultar</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QListWidget" name="listWidget"/>
+       </item>
+      </layout>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -39,7 +90,7 @@
       <property name="geometry">
        <rect>
         <x>300</x>
-        <y>70</y>
+        <y>80</y>
         <width>58</width>
         <height>16</height>
        </rect>
@@ -64,8 +115,8 @@
      <widget class="QPushButton" name="pushButton">
       <property name="geometry">
        <rect>
-        <x>510</x>
-        <y>260</y>
+        <x>520</x>
+        <y>270</y>
         <width>141</width>
         <height>32</height>
        </rect>
@@ -77,8 +128,8 @@
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>560</x>
-        <y>70</y>
+        <x>580</x>
+        <y>80</y>
         <width>58</width>
         <height>16</height>
        </rect>
@@ -90,8 +141,8 @@
      <widget class="QLabel" name="label_9">
       <property name="geometry">
        <rect>
-        <x>660</x>
-        <y>70</y>
+        <x>670</x>
+        <y>80</y>
         <width>81</width>
         <height>16</height>
        </rect>
@@ -100,543 +151,531 @@
        <string>Clasificación</string>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>300</x>
-        <y>100</y>
-        <width>191</width>
-        <height>131</height>
+        <x>290</x>
+        <y>110</y>
+        <width>471</width>
+        <height>130</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QComboBox" name="cta1Ui">
+        <layout class="QVBoxLayout" name="verticalLayout">
          <item>
-          <property name="text">
-           <string/>
-          </property>
+          <widget class="QComboBox" name="cta1Ui">
+           <item>
+            <property name="text">
+             <string/>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Bancos</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Iva por cobrar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Inventario</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Vehículos</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Clientes</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Gastos de organización</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Capital Social</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Proveedores</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Iva por pagar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Prestaciones laborales por pagar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Depreciación Acumulada Vehículo</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Documentos por pagar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Ventas</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Alquileres</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Sueldos de Administración</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Sueldos de Ventas</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Prestaciones laborales</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Depreciación Vehículo</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Amortizaciónn Gastos de organización</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Costo de Ventas</string>
+            </property>
+           </item>
+          </widget>
          </item>
          <item>
-          <property name="text">
-           <string>Bancos</string>
-          </property>
+          <widget class="QComboBox" name="cta2Ui">
+           <item>
+            <property name="text">
+             <string/>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Bancos</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Iva por cobrar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Inventario</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Vehículos</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Clientes</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Gastos de organización</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Capital Social</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Proveedores</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Iva por pagar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Prestaciones laborales por pagar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Depreciación Acumulada Vehículo</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Documentos por pagar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Ventas</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Alquileres</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Sueldos de Administración</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Sueldos de Ventas</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Prestaciones laborales</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Depreciación Vehículo</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Amortizaciónn Gastos de organización</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Costo de Ventas</string>
+            </property>
+           </item>
+          </widget>
          </item>
          <item>
-          <property name="text">
-           <string>Iva por cobrar</string>
-          </property>
+          <widget class="QComboBox" name="cta3Ui">
+           <item>
+            <property name="text">
+             <string/>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Bancos</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Iva por cobrar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Inventario</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Vehículos</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Clientes</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Gastos de organización</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Capital Social</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Proveedores</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Iva por pagar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Prestaciones laborales por pagar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Depreciación Acumulada Vehículo</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Documentos por pagar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Ventas</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Alquileres</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Sueldos de Administración</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Sueldos de Ventas</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Prestaciones laborales</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Depreciación Vehículo</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Amortizaciónn Gastos de organización</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Costo de Ventas</string>
+            </property>
+           </item>
+          </widget>
          </item>
          <item>
-          <property name="text">
-           <string>Inventario</string>
-          </property>
+          <widget class="QComboBox" name="cta4Ui">
+           <item>
+            <property name="text">
+             <string/>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Bancos</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Iva por cobrar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Inventario</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Vehículos</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Clientes</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Gastos de organización</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Capital Social</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Proveedores</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Iva por pagar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Prestaciones laborales por pagar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Depreciación Acumulada Vehículo</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Documentos por pagar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Ventas</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Alquileres</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Sueldos de Administración</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Sueldos de Ventas</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Prestaciones laborales</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Depreciación Vehículo</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Amortizaciónn Gastos de organización</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Costo de Ventas</string>
+            </property>
+           </item>
+          </widget>
          </item>
-         <item>
-          <property name="text">
-           <string>Vehículos</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Clientes</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Gastos de organización</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Capital Social</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Proveedores</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Iva por pagar</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Prestaciones laborales por pagar</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Depreciación Acumulada Vehículo</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Documentos por pagar</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Ventas</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Alquileres</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Sueldos de Administración</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Sueldos de Ventas</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Prestaciones laborales</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Depreciación Vehículo</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Amortizaciónn Gastos de organización</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Costo de Ventas</string>
-          </property>
-         </item>
-        </widget>
+        </layout>
        </item>
        <item>
-        <widget class="QComboBox" name="cta2Ui">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
-          <property name="text">
-           <string/>
-          </property>
+          <widget class="QDoubleSpinBox" name="mtd1Ui"/>
          </item>
          <item>
-          <property name="text">
-           <string>Bancos</string>
-          </property>
+          <widget class="QDoubleSpinBox" name="mtd2Ui"/>
          </item>
          <item>
-          <property name="text">
-           <string>Iva por cobrar</string>
-          </property>
+          <widget class="QDoubleSpinBox" name="mtd3Ui"/>
          </item>
          <item>
-          <property name="text">
-           <string>Inventario</string>
-          </property>
+          <widget class="QDoubleSpinBox" name="mtd4Ui"/>
          </item>
-         <item>
-          <property name="text">
-           <string>Vehículos</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Clientes</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Gastos de organización</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Capital Social</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Proveedores</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Iva por pagar</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Prestaciones laborales por pagar</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Depreciación Acumulada Vehículo</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Documentos por pagar</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Ventas</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Alquileres</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Sueldos de Administración</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Sueldos de Ventas</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Prestaciones laborales</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Depreciación Vehículo</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Amortizaciónn Gastos de organización</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Costo de Ventas</string>
-          </property>
-         </item>
-        </widget>
+        </layout>
        </item>
        <item>
-        <widget class="QComboBox" name="cta3Ui">
+        <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
-          <property name="text">
-           <string/>
-          </property>
+          <widget class="QComboBox" name="clf1Ui">
+           <item>
+            <property name="text">
+             <string>Debe</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Haber</string>
+            </property>
+           </item>
+          </widget>
          </item>
          <item>
-          <property name="text">
-           <string>Bancos</string>
-          </property>
+          <widget class="QComboBox" name="clf2Ui">
+           <item>
+            <property name="text">
+             <string>Debe</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Haber</string>
+            </property>
+           </item>
+          </widget>
          </item>
          <item>
-          <property name="text">
-           <string>Iva por cobrar</string>
-          </property>
+          <widget class="QComboBox" name="clf3Ui">
+           <item>
+            <property name="text">
+             <string>Debe</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Haber</string>
+            </property>
+           </item>
+          </widget>
          </item>
          <item>
-          <property name="text">
-           <string>Inventario</string>
-          </property>
+          <widget class="QComboBox" name="clf3Ui_2">
+           <item>
+            <property name="text">
+             <string>Debe</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Haber</string>
+            </property>
+           </item>
+          </widget>
          </item>
-         <item>
-          <property name="text">
-           <string>Vehículos</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Clientes</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Gastos de organización</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Capital Social</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Proveedores</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Iva por pagar</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Prestaciones laborales por pagar</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Depreciación Acumulada Vehículo</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Documentos por pagar</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Ventas</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Alquileres</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Sueldos de Administración</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Sueldos de Ventas</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Prestaciones laborales</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Depreciación Vehículo</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Amortizaciónn Gastos de organización</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Costo de Ventas</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item>
-        <widget class="QComboBox" name="cta4Ui">
-         <item>
-          <property name="text">
-           <string/>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Bancos</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Iva por cobrar</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Inventario</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Vehículos</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Clientes</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Gastos de organización</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Capital Social</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Proveedores</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Iva por pagar</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Prestaciones laborales por pagar</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Depreciación Acumulada Vehículo</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Documentos por pagar</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Ventas</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Alquileres</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Sueldos de Administración</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Sueldos de Ventas</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Prestaciones laborales</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Depreciación Vehículo</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Amortizaciónn Gastos de organización</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Costo de Ventas</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="">
-      <property name="geometry">
-       <rect>
-        <x>550</x>
-        <y>100</y>
-        <width>63</width>
-        <height>128</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QDoubleSpinBox" name="mtd1Ui"/>
-       </item>
-       <item>
-        <widget class="QDoubleSpinBox" name="mtd2Ui"/>
-       </item>
-       <item>
-        <widget class="QDoubleSpinBox" name="mtd3Ui"/>
-       </item>
-       <item>
-        <widget class="QDoubleSpinBox" name="mtd4Ui"/>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="">
-      <property name="geometry">
-       <rect>
-        <x>650</x>
-        <y>100</y>
-        <width>101</width>
-        <height>124</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <widget class="QComboBox" name="clf1Ui">
-         <item>
-          <property name="text">
-           <string>Debe</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Haber</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item>
-        <widget class="QComboBox" name="clf2Ui">
-         <item>
-          <property name="text">
-           <string>Debe</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Haber</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item>
-        <widget class="QComboBox" name="clf3Ui">
-         <item>
-          <property name="text">
-           <string>Debe</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Haber</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item>
-        <widget class="QComboBox" name="clf3Ui_2">
-         <item>
-          <property name="text">
-           <string>Debe</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Haber</string>
-          </property>
-         </item>
-        </widget>
+        </layout>
        </item>
       </layout>
      </widget>
