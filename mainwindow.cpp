@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include "librodiario.h"
 #include "libromayor.h"
+#include "documentacion.h"
 #include <iostream>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -27,6 +28,14 @@ double montoCuentas[100]={0};
 //Arreglo para guardar el indice de las clasificaciones de cuentas
 int indiceClasCuentas[100];
 
+void MainWindow::on_consultarButton_clicked(){
+    documentacion d;
+    ui->descripcionlist->addItem(d.getCuentas((ui->cuentasCBox->currentIndex())-1));
+
+    ui->descripcionlist->addItem(d.getClasificacion((ui->cuentasCBox->currentIndex()-1)));
+
+    ui->descripcionlist->addItem(d.getDescripcion((ui->cuentasCBox->currentIndex()-1)));
+}
 void MainWindow::on_pushButton_clicked()
 {
 
@@ -777,3 +786,5 @@ void MainWindow::on_pushButton_2_clicked()
 
 
 }
+
+

@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>0</y>
       <width>1061</width>
       <height>568</height>
      </rect>
@@ -33,42 +33,152 @@
      <widget class="QLabel" name="label_12">
       <property name="geometry">
        <rect>
-        <x>490</x>
-        <y>40</y>
-        <width>58</width>
+        <x>390</x>
+        <y>10</y>
+        <width>171</width>
         <height>18</height>
        </rect>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>Documentación de Cuentas</string>
       </property>
      </widget>
-     <widget class="QComboBox" name="comboBox">
+     <widget class="QComboBox" name="cuentasCBox">
       <property name="geometry">
        <rect>
-        <x>271</x>
-        <y>91</y>
-        <width>79</width>
+        <x>280</x>
+        <y>40</y>
+        <width>291</width>
         <height>26</height>
        </rect>
       </property>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bancos</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Iva por Cobrar</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Inventario</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Vehículos</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Clientes</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Gastos de Organización</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Capital Social</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Proveedores</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Iva por Pagar</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Prestaciones Laborales por Pagar</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Depreciación Acumulada de Vehículos</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Documentos por Pagar</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Ventas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Alquileres</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Sueldos de Administración</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Sueldos de Ventas </string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Prestaciones Laborales</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Depreciación de Vehículos</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Amortización de Gastos de Organización</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Costo de Ventas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
      </widget>
-     <widget class="QListWidget" name="listWidget">
+     <widget class="QListWidget" name="descripcionlist">
       <property name="geometry">
        <rect>
-        <x>370</x>
+        <x>10</x>
         <y>90</y>
-        <width>256</width>
-        <height>192</height>
+        <width>1041</width>
+        <height>421</height>
        </rect>
       </property>
      </widget>
      <widget class="QPushButton" name="consultarButton">
       <property name="geometry">
        <rect>
-        <x>271</x>
-        <y>123</y>
-        <width>80</width>
+        <x>580</x>
+        <y>40</y>
+        <width>91</width>
         <height>26</height>
        </rect>
       </property>

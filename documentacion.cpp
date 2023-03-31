@@ -31,7 +31,7 @@ documentacion::documentacion()
     this->clasificacion[5]="Activo";
     this->clasificacion[6]="Pasivo";
     this->clasificacion[7]="Pasivo";
-    this->clasificacion[8]="Proveedores";
+    this->clasificacion[8]="Pasivo";
     this->clasificacion[9]="Pasivo";
     this->clasificacion[10]="Pasivo";
     this->clasificacion[11]="Pasivo";
@@ -66,6 +66,18 @@ documentacion::documentacion()
     this->descripcion[19]="Es el gasto directo en el que incurre una empresa para producir los bienes o servicios vendidos durante un período determinado. Este costo incluye el costo de los materiales, la mano de obra directa y los gastos generales directos asociados a la producción de bienes o servicios.";
 
 };
+
+QString documentacion::getCuentas(int indice){
+    return cuentas[indice];
+}
+
+QString documentacion::getClasificacion(int indice){
+    return clasificacion[indice];
+}
+
+QString documentacion::getDescripcion(int indice){
+    return descripcion[indice];
+}
 
 
 
