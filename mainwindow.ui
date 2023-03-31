@@ -43,43 +43,38 @@
        <string>TextLabel</string>
       </property>
      </widget>
-     <widget class="QWidget" name="layoutWidget">
+     <widget class="QComboBox" name="comboBox">
       <property name="geometry">
        <rect>
-        <x>270</x>
-        <y>90</y>
-        <width>421</width>
-        <height>401</height>
+        <x>271</x>
+        <y>91</y>
+        <width>79</width>
+        <height>26</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
-       <item>
-        <widget class="QComboBox" name="comboBox"/>
-       </item>
-       <item>
-        <widget class="QPushButton" name="consultarButton">
-         <property name="text">
-          <string>Consultar</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QListWidget" name="listWidget"/>
-       </item>
-      </layout>
+     </widget>
+     <widget class="QListWidget" name="listWidget">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>90</y>
+        <width>256</width>
+        <height>192</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="consultarButton">
+      <property name="geometry">
+       <rect>
+        <x>271</x>
+        <y>123</y>
+        <width>80</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Consultar</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
