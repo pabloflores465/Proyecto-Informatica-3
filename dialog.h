@@ -2,8 +2,8 @@
 #define DIALOG_H
 
 #include <QDialog>
-
-#include "login.h"
+#include "mainwindow.h"
+#include "usuario.h"
 
 namespace Ui {
 class Dialog;
@@ -19,12 +19,17 @@ public:
 
 
 private slots:
-    void on_confirmarBBox_clicked();
+    void on_verificarButton2_clicked();
+    void on_verificarButton_clicked();
 
 private:
     Ui::Dialog *ui;
 
-    logIn lI;
+    MainWindow *mainW;
+    usuario user;
+
+    usuario *currentUser=new usuario();
+
 };
 
 #endif // DIALOG_H

@@ -13,39 +13,23 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QDialogButtonBox" name="confirmarBB">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>290</y>
-     <width>341</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-   <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-   </property>
-  </widget>
   <widget class="QTabWidget" name="tabWidget_2">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
      <width>441</width>
-     <height>291</height>
+     <height>331</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab_6">
     <attribute name="title">
      <string>Inicia Sesión</string>
     </attribute>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -88,7 +72,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -131,12 +115,44 @@
       </item>
      </layout>
     </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>200</y>
+       <width>361</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_8">
+      <item>
+       <widget class="QPushButton" name="verificarButton">
+        <property name="text">
+         <string>Verificar</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_8">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_7">
     <attribute name="title">
      <string>Registrate</string>
     </attribute>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>29</x>
@@ -179,7 +195,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -214,15 +230,15 @@
        </layout>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_5">
+       <widget class="QLineEdit" name="apellidoLEdit">
         <property name="echoMode">
-         <enum>QLineEdit::Password</enum>
+         <enum>QLineEdit::Normal</enum>
         </property>
        </widget>
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>29</x>
@@ -257,15 +273,15 @@
        </layout>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_4">
+       <widget class="QLineEdit" name="setUsuarioLEdit">
         <property name="echoMode">
-         <enum>QLineEdit::Password</enum>
+         <enum>QLineEdit::Normal</enum>
         </property>
        </widget>
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -300,7 +316,7 @@
        </layout>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_3">
+       <widget class="QLineEdit" name="setContraLEdit">
         <property name="echoMode">
          <enum>QLineEdit::Password</enum>
         </property>
@@ -308,55 +324,41 @@
       </item>
      </layout>
     </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>260</y>
+       <width>351</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_7">
+      <item>
+       <widget class="QPushButton" name="verificarButton2">
+        <property name="text">
+         <string>Verificar</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_7">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
    </widget>
-  </widget>
-  <widget class="QPushButton" name="confirmarBBox">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>300</y>
-     <width>80</width>
-     <height>26</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>PushButton</string>
-   </property>
   </widget>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>confirmarBB</sender>
-   <signal>accepted()</signal>
-   <receiver>Dialog</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>157</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>confirmarBB</sender>
-   <signal>rejected()</signal>
-   <receiver>Dialog</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>286</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
