@@ -24,7 +24,7 @@ void usuario::insertAtTheFront(usuario **head,QString newNombre, QString newApel
 
 void usuario::insertAfter(usuario *previous,QString newNombre, QString newApellido, QString newNombreUsuario, QString newContrasena){
    //Check if previous node is NULL
-   if (previous==NULL){
+   if (previous==nullptr){
        insertAtTheFront(&previous,newNombre,newApellido,newNombreUsuario,newContrasena);
    }
    //Prepare a New Node
