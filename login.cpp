@@ -43,6 +43,7 @@ void Login::on_verificarButton2_clicked(){
 
 void Login::on_verificarButton_clicked()
 {
+    //Esta es una bandera para el primer usuario
     usuario *firstUser=currentUser;
     bool verificacionCompletada=false;
     if (primerUsuarioCreado==false){
