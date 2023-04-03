@@ -6,7 +6,6 @@
 class usuario
 {
 public:
-    usuario();
     QString nombre;
     QString apellido;
     QString nombreUsuario;
@@ -14,6 +13,7 @@ public:
     usuario *next;
 
 public:
+    usuario();
     void insertAtTheFront(usuario **head,QString newNombre, QString newApellido, QString newNombreUsuario, QString newContrasena);
     void insertAfter(usuario *previous,QString newNombre, QString newApellido, QString newNombreUsuario, QString newContrasena);
 

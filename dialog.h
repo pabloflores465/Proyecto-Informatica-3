@@ -24,10 +24,9 @@ private slots:
 
 private:
     Ui::Dialog *ui;
-
+    bool primerUsuarioCreado=false;
     MainWindow *mainW;
     usuario user;
-
     usuario *currentUser=new usuario();
 
 };

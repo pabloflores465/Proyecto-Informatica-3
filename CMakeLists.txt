@@ -28,8 +28,8 @@ set(PROJECT_SOURCES
         balancegeneral.cpp
         estadoresultados.h
         estadoresultados.cpp
-        singup.h
-        singup.cpp
+        usuario.h
+        usuario.cpp
         login.h
         login.cpp
         infousuario.h
