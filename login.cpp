@@ -1,22 +1,22 @@
-#include "dialog.h"
-#include "ui_dialog.h"
+#include "login.h"
+#include "ui_login.h"
 #include "mainwindow.h"
 
 #include <QMessageBox>
 
-Dialog::Dialog(QWidget *parent) :
+Login::Login(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::Dialog)
+    ui(new Ui::Login)
 {
     ui->setupUi(this);
 }
 
-Dialog::~Dialog()
+Login::~Login()
 {
     delete ui;
 }
 
-void Dialog::on_verificarButton2_clicked(){
+void Login::on_verificarButton2_clicked(){
     bool nombreCorrecto=true;
     usuario *usuarioRegistrarse=currentUser;
     if (ui->setUsuarioLEdit->text()==""||ui->setContraLEdit->text()==""){
@@ -41,7 +41,7 @@ void Dialog::on_verificarButton2_clicked(){
     }
 }
 
-void Dialog::on_verificarButton_clicked()
+void Login::on_verificarButton_clicked()
 {
     usuario *firstUser=currentUser;
     bool verificacionCompletada=false;

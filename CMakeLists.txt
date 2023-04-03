@@ -32,9 +32,9 @@ set(PROJECT_SOURCES
         usuario.cpp
         infousuario.h
         infousuario.cpp
-        dialog.cpp
-        dialog.h
-        dialog.ui
+        login.cpp
+        login.h
+        login.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

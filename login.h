@@ -1,21 +1,21 @@
-#ifndef DIALOG_H
-#define DIALOG_H
+#ifndef LOGIN_H
+#define LOGIN_H
 
 #include <QDialog>
 #include "mainwindow.h"
 #include "usuario.h"
 
 namespace Ui {
-class Dialog;
+class Login;
 }
 
-class Dialog : public QDialog
+class Login : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit Dialog(QWidget *parent = nullptr);
-    ~Dialog();
+    explicit Login(QWidget *parent = nullptr);
+    ~Login();
 
 
 private slots:
@@ -23,7 +23,7 @@ private slots:
     void on_verificarButton_clicked();
 
 private:
-    Ui::Dialog *ui;
+    Ui::Login *ui;
     bool primerUsuarioCreado=false;
     MainWindow *mainW;
     usuario user;
@@ -31,4 +31,4 @@ private:
 
 };
 
-#endif // DIALOG_H
+#endif // LOGIN_H
