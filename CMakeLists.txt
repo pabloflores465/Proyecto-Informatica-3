@@ -30,8 +30,6 @@ set(PROJECT_SOURCES
         estadoresultados.cpp
         usuario.h
         usuario.cpp
-        login.h
-        login.cpp
         infousuario.h
         infousuario.cpp
         dialog.cpp
