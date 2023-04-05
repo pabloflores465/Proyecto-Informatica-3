@@ -2,26 +2,26 @@
 
 documentacion::documentacion()
 {
-    this->cuentas[0]="Bancos";
-    this->cuentas[1]="Iva por Cobrar";
-    this->cuentas[2]="Inventario";
-    this->cuentas[3]="Vehículos";
-    this->cuentas[4]="Clientes";
-    this->cuentas[5]="Gastos de Organización";
-    this->cuentas[6]="Capital Social";
-    this->cuentas[7]="Proveedores";
-    this->cuentas[8]="Iva por Pagar";
-    this->cuentas[9]="Prestaciones Laborales por Pagar";
-    this->cuentas[10]="Depreciación Acumulada de Vehículos";
-    this->cuentas[11]="Documentos por Pagar";
-    this->cuentas[12]="Ventas";
-    this->cuentas[13]="Alquileres";
-    this->cuentas[14]="Sueldos de Administración";
-    this->cuentas[15]="Sueldos de Ventas";
-    this->cuentas[16]="Prestaciones Laborales";
-    this->cuentas[17]="Depreciación Vehículos";
-    this->cuentas[18]="Amortización de Gastos de Organización";
-    this->cuentas[19]="Costo de Ventas";
+    this->cuenta[0]="Bancos";
+    this->cuenta[1]="Iva por Cobrar";
+    this->cuenta[2]="Inventario";
+    this->cuenta[3]="Vehículos";
+    this->cuenta[4]="Clientes";
+    this->cuenta[5]="Gastos de Organización";
+    this->cuenta[6]="Capital Social";
+    this->cuenta[7]="Proveedores";
+    this->cuenta[8]="Iva por Pagar";
+    this->cuenta[9]="Prestaciones Laborales por Pagar";
+    this->cuenta[10]="Depreciación Acumulada de Vehículos";
+    this->cuenta[11]="Documentos por Pagar";
+    this->cuenta[12]="Ventas";
+    this->cuenta[13]="Alquileres";
+    this->cuenta[14]="Sueldos de Administración";
+    this->cuenta[15]="Sueldos de Ventas";
+    this->cuenta[16]="Prestaciones Laborales";
+    this->cuenta[17]="Depreciación Vehículos";
+    this->cuenta[18]="Amortización de Gastos de Organización";
+    this->cuenta[19]="Costo de Ventas";
 
     this->clasificacion[0]="Activo";
     this->clasificacion[1]="Activo";
@@ -35,7 +35,7 @@ documentacion::documentacion()
     this->clasificacion[9]="Pasivo";
     this->clasificacion[10]="Pasivo";
     this->clasificacion[11]="Pasivo";
-    this->clasificacion[12]="Ingresos";
+    this->clasificacion[12]="Ingreso";
     this->clasificacion[13]="Gasto";
     this->clasificacion[14]="Gasto";
     this->clasificacion[15]="Gasto";
@@ -44,7 +44,7 @@ documentacion::documentacion()
     this->clasificacion[18]="Gasto";
     this->clasificacion[19]="Gasto";
 
-    this->descripcion[0]="Es la cuenta que se utiliza para registrar las operaciones de ingresos y egresos de dinero relacionadas con la actividad bancaria. En esta cuenta se registran los depósitos, cheques emitidos, transferencias bancarias, comisiones bancarias, entre otros.";
+    this->descripcion[0]="Es la cuenta que se utiliza para registrar las operaciones de ingresos y egresos de dinero relacionadas con la actividad bancaria.En esta cuenta se registran los depósitos, cheques emitidos, transferencias bancarias, comisiones bancarias, entre otros.";
     this->descripcion[1]="Es el impuesto al valor agregado que un negocio ha cobrado a sus clientes y que aún no ha sido pagado. El IVA es un impuesto que se aplica en muchos países a la mayoría de las transacciones comerciales y es responsabilidad del negocio recolectar este impuesto y luego pagar al gobierno.";
     this->descripcion[2]="Es un activo corriente que representa los bienes y productos que un negocio tiene disponibles para su venta a los clientes. Es decir, es la mercancía o productos que el negocio tiene en su poder y que espera vender a un precio superior al costo de adquisición para obtener una ganancia.";
     this->descripcion[3]="son activos fijos que posee una empresa y se utilizan para llevar a cabo sus operaciones comerciales. Pueden ser vehículos de transporte de mercancías, vehículos de transporte de personal, maquinarias y equipos, entre otros.";
@@ -67,8 +67,8 @@ documentacion::documentacion()
 
 };
 
-QString documentacion::getCuentas(int indice){
-    return cuentas[indice];
+QString documentacion::getCuenta(int indice){
+    return cuenta[indice];
 }
 
 QString documentacion::getClasificacion(int indice){
