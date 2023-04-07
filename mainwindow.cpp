@@ -3,12 +3,20 @@
 #include "librodiario.h"
 #include "libromayor.h"
 #include "documentacion.h"
+#include "balancegeneral.h"
+#include "estadoresultados.h"
 #include <iostream>
 #include <QString>
 
 documentacion docu;
 libroDiario libroD;
 libroMayor libroM;
+balanceGeneral balanceG;
+estadoResultados estadoR;
+
+const int cuentasTotales=20;
+const int cuentasIngresadas=100;
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -17,11 +25,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);\
 
     //for de libro diario
-    for(int i=0;i<20;i++){
+    for(int i=0;i<cuentasTotales;i++){
         ui->cuentasCBox->addItem(docu.getCuenta(i));
     }
     //for de libro mayor
-    for(int i=0;i<20;i++){
+    for(int i=0;i<cuentasTotales;i++){
         ui->cuenta2->addItem(libroD.documentacion::getCuenta(i));
         ui->cuenta3->addItem(libroD.documentacion::getCuenta(i));
         ui->cuenta4->addItem(libroD.documentacion::getCuenta(i));
@@ -53,18 +61,18 @@ void MainWindow::sumaCuentasLibroM(QComboBox *cuenta){
     }
     else if(libroD.documentacion::getClasificacion(cuenta->currentIndex())=="Pasivo"){
         if(libroD.getClasificacion(numeroCuenta)=="Debe"){
-            libroM.setTotalCuenta(cuenta->currentIndex(), libroM.getTotalCuenta(cuenta->currentIndex())+libroD.getValor(numeroCuenta));
+            libroM.setTotalCuenta(cuenta->currentIndex(), libroM.getTotalCuenta(cuenta->currentIndex())-libroD.getValor(numeroCuenta));
         }
         else if(libroD.getClasificacion(numeroCuenta)=="Haber"){
-            libroM.setTotalCuenta(cuenta->currentIndex(), libroM.getTotalCuenta(cuenta->currentIndex())-libroD.getValor(numeroCuenta));
+            libroM.setTotalCuenta(cuenta->currentIndex(), libroM.getTotalCuenta(cuenta->currentIndex())+libroD.getValor(numeroCuenta));
         }
     }
     else if(libroD.documentacion::getClasificacion(cuenta->currentIndex())=="Ingreso"){
         if(libroD.getClasificacion(numeroCuenta)=="Debe"){
-            libroM.setTotalCuenta(cuenta->currentIndex(), libroM.getTotalCuenta(cuenta->currentIndex())+libroD.getValor(numeroCuenta));
+            libroM.setTotalCuenta(cuenta->currentIndex(), libroM.getTotalCuenta(cuenta->currentIndex())-libroD.getValor(numeroCuenta));
         }
         else if(libroD.getClasificacion(numeroCuenta)=="Haber"){
-            libroM.setTotalCuenta(cuenta->currentIndex(), libroM.getTotalCuenta(cuenta->currentIndex())-libroD.getValor(numeroCuenta));
+            libroM.setTotalCuenta(cuenta->currentIndex(), libroM.getTotalCuenta(cuenta->currentIndex())+libroD.getValor(numeroCuenta));
         }
 
     }
@@ -78,9 +86,42 @@ void MainWindow::sumaCuentasLibroM(QComboBox *cuenta){
     }
 }
 
+void MainWindow::valoresDebe(QListWidget *clasificacion, int cuenta){
+    for(int i=0;i<cuentasIngresadas;i++){
+        if(libroD.getCuenta(i)==libroM.getCuenta(cuenta)&&libroD.getClasificacion(i)=="Debe"){
+            clasificacion->addItem(QString::number(libroD.getValor(i)));
+            libroM.setTotalDebe(cuenta, libroM.getTotalDebe(cuenta)+libroD.getValor(i));
+
+        }
+
+    }
+}
+void MainWindow::valoresHaber(QListWidget *clasificacion, int cuenta){
+    for(int i=0;i<cuentasIngresadas;i++){
+        if(libroD.getCuenta(i)==libroM.getCuenta(cuenta)&&libroD.getClasificacion(i)=="Haber"){
+            clasificacion->addItem(QString::number(libroD.getValor(i)));
+            libroM.setTotalHaber(cuenta, libroM.getTotalHaber(cuenta)+libroD.getValor(i));
+        }
+    }
+}
+
+void MainWindow::agregarAlMayor(QListWidget *clasificacion, int cuenta){
+    clasificacion->addItem(libroM.getCuenta(cuenta));
+    clasificacion->addItem("Debe");
+    valoresDebe(clasificacion,cuenta);
+    clasificacion->addItem("Total Debe");
+    clasificacion->addItem(QString::number(libroM.getTotalDebe(cuenta)));
+    clasificacion->addItem("Haber");
+    valoresHaber(clasificacion,cuenta);
+    clasificacion->addItem("Total Haber");
+    clasificacion->addItem(QString::number(libroM.getTotalHaber(cuenta)));
+    clasificacion->addItem("Total Cuenta");
+    clasificacion->addItem(QString::number(libroM.getTotalCuenta(cuenta)));
+}
+
 void MainWindow::on_anadirCuenta_clicked()
 {
-
+    //Libro Diario
     libroD.setCuenta(numeroCuenta, ui->cuenta1->currentText());
     libroD.setValor(numeroCuenta, ui->valor1->value());
     libroD.setClasificacion(numeroCuenta, ui->clasificacion1->currentText());
@@ -102,28 +143,103 @@ void MainWindow::on_anadirCuenta_clicked()
     sumaCuentasLibroM(ui->cuenta4);
     numeroCuenta++;
 
+    //Libro Mayor
     ui->activosList->clear();
     ui->pasivosList->clear();
     ui->ingresosList->clear();
     ui->gastosList->clear();
-    for(int i=0;i<20;i++){
+    for(int i=0;i<cuentasTotales;i++){
         if(libroM.getClasificacion(i)=="Activo"){
-            ui->activosList->addItem(libroM.getCuenta(i));
-            ui->activosList->addItem(QString::number(libroM.getTotalCuenta(i)));
+            agregarAlMayor(ui->activosList,i);
         }
         else if(libroM.getClasificacion(i)=="Pasivo"){
-            ui->pasivosList->addItem(libroM.getCuenta(i));
-            ui->pasivosList->addItem(QString::number(libroM.getTotalCuenta(i)));
+            agregarAlMayor(ui->pasivosList,i);
         }
         else if(libroM.getClasificacion(i)=="Ingreso"){
-            ui->ingresosList->addItem(libroM.getCuenta(i));
-            ui->ingresosList->addItem(QString::number(libroM.getTotalCuenta(i)));
+            agregarAlMayor(ui->ingresosList,i);
         }
         else if(libroM.getClasificacion(i)=="Gasto"){
-            ui->gastosList->addItem(libroM.getCuenta(i));
-            ui->gastosList->addItem(QString::number(libroM.getTotalCuenta(i)));
+            agregarAlMayor(ui->gastosList,i);
         }
     }
+
+    //Estado de Resultados
+    ui->estadoRList->clear();
+    for (int i = 0; i < cuentasTotales; i++) {
+        if(libroM.getClasificacion(i)=="Ingreso"){
+            ui->estadoRList->addItem(libroM.getCuenta(i));
+            ui->estadoRList->addItem(QString::number(libroM.getTotalCuenta(i)));
+            estadoR.setTotalIngresos(estadoR.getTotalIngresos()+libroM.getTotalCuenta(i));
+        }
+    }
+    int i1=0;
+    while(libroM.getCuenta(i1)!="Costo de Ventas"){
+        i1++;
+    }
+    ui->estadoRList->addItem(libroM.getCuenta(i1));
+    ui->estadoRList->addItem(QString::number(libroM.getTotalCuenta(i1)));
+    estadoR.setUtilidadBruta(estadoR.getTotalIngresos()-libroM.getTotalCuenta(i1));
+    ui->estadoRList->addItem("Utilidad Bruta");
+    ui->estadoRList->addItem(QString::number(estadoR.getUtilidadBruta()));
+    estadoR.setUtilidadAntesImpuestos(estadoR.getUtilidadBruta());
+    for (int i = 0; i < cuentasTotales; ++i) {
+        if(libroM.getClasificacion(i)=="Gasto"){
+            ui->estadoRList->addItem(libroM.getCuenta(i));
+            ui->estadoRList->addItem(QString::number(libroM.getTotalCuenta(i)));
+            estadoR.setUtilidadAntesImpuestos(estadoR.getUtilidadAntesImpuestos()-libroM.getTotalCuenta(i));
+        }
+    }
+    ui->estadoRList->addItem("Utilidad antes de impuestos");
+    ui->estadoRList->addItem(QString::number(estadoR.getUtilidadAntesImpuestos()));
+    if(estadoR.getUtilidadAntesImpuestos()<0){
+        estadoR.setUtilidadNeta(estadoR.getUtilidadAntesImpuestos());
+    }
+    else if((estadoR.getUtilidadAntesImpuestos()/estadoR.getTotalIngresos())<=0.3){
+        estadoR.setUtilidadNeta(estadoR.getUtilidadAntesImpuestos()-(estadoR.getUtilidadAntesImpuestos()*0.25));
+    }
+    else if((estadoR.getUtilidadAntesImpuestos()/estadoR.getTotalIngresos())>0.3){
+        int excesoRenta=(estadoR.getUtilidadAntesImpuestos()-30000);
+        estadoR.setUtilidadNeta((300000*0.05)+(excesoRenta*0.07));
+    }
+    ui->estadoRList->addItem("Utilidad Neta");
+    ui->estadoRList->addItem(QString::number(estadoR.getUtilidadNeta()));
+
+    //Balance General
+
+    balanceG.setTotalCapital(balanceG.getTotalCapital()+estadoR.getUtilidadNeta());
+    ui->ActivosBG->clear();
+    ui->PasivoBG->clear();
+    ui->CapitalBG->clear();
+    for (int i = 0; i < cuentasTotales; i++) {
+       if(libroM.getClasificacion(i)=="Activo"){
+            ui->ActivosBG->addItem(libroM.getCuenta(i));
+            ui->ActivosBG->addItem(QString::number(libroM.getTotalCuenta(i)));
+            balanceG.setTotalActivos(balanceG.getTotalActivos()+libroM.getTotalCuenta(i));
+
+       }
+       else if(libroM.getClasificacion(i)=="Pasivo"&&libroM.getCuenta(i)!="Capital Social"){
+            ui->PasivoBG->addItem(libroM.getCuenta(i));
+            ui->PasivoBG->addItem(QString::number(libroM.getTotalCuenta(i)));
+            balanceG.setTotalPasivosCapital(balanceG.getTotalPasivos()+libroM.getTotalCuenta(i));
+       }
+       else if (libroM.getCuenta(i)=="Capital Social"){
+            ui->CapitalBG->addItem(libroM.getCuenta(i));
+            ui->CapitalBG->addItem(QString::number(libroM.getTotalCuenta(i)));
+            balanceG.setTotalCapital(balanceG.getTotalPasivosCapital()+libroM.getTotalCuenta(i));
+       }
+    }
+
+    balanceG.setTotalPasivosCapital(balanceG.getTotalPasivos()+balanceG.getTotalCapital());
+    ui->ActivosBG->addItem("Total de Activos");
+    ui->ActivosBG->addItem(QString::number(balanceG.getTotalActivos()));
+    ui->PasivoBG->addItem("Total de Pasivos");
+    ui->PasivoBG->addItem(QString::number(balanceG.getTotalPasivos()));
+    ui->CapitalBG->addItem("Utilidad Neta");
+    ui->CapitalBG->addItem(QString::number(estadoR.getUtilidadNeta()));
+    ui->CapitalBG->addItem("Total de Capital");
+    ui->CapitalBG->addItem(QString::number(balanceG.getTotalCapital()));
+    ui->CapitalBG->addItem("Total de Pasivos y Capital");
+    ui->CapitalBG->addItem(QString::number(balanceG.getTotalPasivosCapital()));
 }
 
 

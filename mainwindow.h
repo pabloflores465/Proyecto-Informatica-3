@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "qcombobox.h"
+#include "QListWidget"
 #include <QMainWindow>
 #include <QMessageBox>
 
@@ -30,6 +31,9 @@ private:
 
     int numeroCuenta=0;
     void sumaCuentasLibroM(QComboBox *cuenta);
+    void valoresDebe(QListWidget *clasificacion, int cuenta);
+    void valoresHaber(QListWidget *clasificaion, int cuenta);
+    void agregarAlMayor(QListWidget *clasificacion, int cuenta);
 
 };
 #endif // MAINWINDOW_H
