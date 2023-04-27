@@ -5,7 +5,8 @@
 #include <QMessageBox>
 
 using std::cout;
-
+MainWindow *mainW;
+Login *lg;
 usuario user;
 usuario *currentUser=new usuario();
 
@@ -73,10 +74,13 @@ void Login::on_verificarButton_clicked()
         }
         else{
             QMessageBox::information(this,"Éxito","Autorizacion realizada con éxito");
+            delete ui;
+            close();
             mainW=new MainWindow(this);
             mainW->show();
             verificacionCompletada=true;
             currentUser=nullptr;
+
         }
 
     }
@@ -84,6 +88,7 @@ void Login::on_verificarButton_clicked()
         QMessageBox::information(this,"Error","Lo sentimos el usuario y/o contraseña no son válidos \n pruebe registrarse");
     }
     currentUser=firstUser;
+
 }
 
 void Login::on_verificarAdministrador_clicked()
@@ -93,8 +98,11 @@ void Login::on_verificarAdministrador_clicked()
     }
     else {
         QMessageBox::information(this,"Éxito","Autorización Completada");
+        close();
         admin=new Administrador(this);
         admin->show();
+
+
     }
 }
 

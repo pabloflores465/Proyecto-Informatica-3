@@ -21,6 +21,8 @@ public:
 private slots:
     void on_autorizarUsuario_clicked();
 
+    void on_pushButton_3_clicked();
+
 private:
     Ui::Administrador *ui;
 };

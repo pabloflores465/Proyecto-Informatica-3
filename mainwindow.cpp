@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "login.h"
 #include "./ui_mainwindow.h"
 #include "librodiario.h"
 #include "libromayor.h"
@@ -12,6 +13,10 @@
 
 using std::cout,std::endl;
 
+
+extern MainWindow *mainW;
+extern Login *lg;
+
 documentacion docu;
 libroDiario libroD;
 libroMayor libroM;
@@ -24,7 +29,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
 
-    ui->setupUi(this);\
+    ui->setupUi(this);
+    //Permite Cerrar el Ui al presionar el log out
+    connect(ui->pushButton, &QPushButton::clicked, this, &QMainWindow::close);
 
     //for de libro diario
     for(int i=0;i<cuentasTotales;i++){
@@ -127,6 +134,7 @@ void MainWindow::agregarAlMayor(QListWidget *clasificacion, int cuenta){
 
 void MainWindow::on_anadirCuenta_clicked()
 {
+     QMessageBox::information(this,"Listo!","partida agregada");
     balanceGeneral balanceG;
     estadoResultados estadoR;
 
@@ -279,6 +287,15 @@ void MainWindow::on_anadirCuenta_clicked()
     ui->CapitalBG->addItem(QString::number(balanceG.getTotalCapital()));
     ui->CapitalBG->addItem("Total de Pasivos y Capital");
     ui->CapitalBG->addItem(QString::number(balanceG.getTotalPasivosCapital()));
+
+}
+
+//Boton para cerrar sesión
+void MainWindow::on_pushButton_clicked()
+{
+       lg= new Login(this);
+       lg->show();
+       delete ui;
 
 }
 

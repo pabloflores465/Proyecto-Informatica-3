@@ -29,7 +29,7 @@ private slots:
 private:
     Ui::Login *ui;
     bool primerUsuarioCreado=true;
-    MainWindow *mainW;
+    //MainWindow *mainW;
     Administrador *admin;
 
     infoUsuario infoadmin;
