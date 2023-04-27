@@ -4,6 +4,7 @@
 #include <QString>
 #include <QListWidget>
 #include <QListWidgetItem>
+#include <QTextEdit>
 
 class usuario
 {
@@ -24,6 +25,7 @@ public:
     bool getEstado(usuario *noUsuario,QString usuario);
     void printNode(QListWidget *lista, usuario *noUsuario, QString usuario);
     void deleteFromList(QListWidget *lista, usuario *noUsuario, QString usuario);
+    //,void editList(QListWidget *lista, QTextEdit *texto, usuario *noUsuario, QString )
 };
 
 #endif // SINGUP_H
