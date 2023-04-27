@@ -9,6 +9,7 @@ private:
     double utilidadBruta;
     double utilidadAntesImpuestos;
     double utilidadNeta;
+    double isr;
 
 public:
     estadoResultados();
@@ -16,10 +17,12 @@ public:
     void setUtilidadBruta(double _utlidadB);
     void setUtilidadAntesImpuestos(double _utilidadAntesI);
     void setUtilidadNeta(double _utilidadNeta);
+    void setIsr(double _isr);
     double getTotalIngresos();
     double getUtilidadBruta();
     double getUtilidadAntesImpuestos();
     double getUtilidadNeta();
+    double getIsr();
 
 };
 

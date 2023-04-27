@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -175,16 +175,32 @@
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
-          <widget class="QDoubleSpinBox" name="valor1"/>
+          <widget class="QDoubleSpinBox" name="valor1">
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+          </widget>
          </item>
          <item>
-          <widget class="QDoubleSpinBox" name="valor2"/>
+          <widget class="QDoubleSpinBox" name="valor2">
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+          </widget>
          </item>
          <item>
-          <widget class="QDoubleSpinBox" name="valor3"/>
+          <widget class="QDoubleSpinBox" name="valor3">
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+          </widget>
          </item>
          <item>
-          <widget class="QDoubleSpinBox" name="valor4"/>
+          <widget class="QDoubleSpinBox" name="valor4">
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -320,19 +336,6 @@
        <string>Gastos</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="generarLibroM">
-      <property name="geometry">
-       <rect>
-        <x>460</x>
-        <y>460</y>
-        <width>141</width>
-        <height>32</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Generar libro mayor</string>
-      </property>
-     </widget>
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
@@ -360,7 +363,7 @@
     </widget>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
-      <string>Balnce General</string>
+      <string>Balance General</string>
      </attribute>
      <widget class="QLabel" name="label_6">
       <property name="geometry">
@@ -378,10 +381,10 @@
      <widget class="QLabel" name="label_15">
       <property name="geometry">
        <rect>
-        <x>700</x>
-        <y>90</y>
-        <width>58</width>
-        <height>16</height>
+        <x>160</x>
+        <y>80</y>
+        <width>43</width>
+        <height>18</height>
        </rect>
       </property>
       <property name="text">
@@ -391,10 +394,10 @@
      <widget class="QLabel" name="label_13">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>90</y>
-        <width>58</width>
-        <height>16</height>
+        <x>700</x>
+        <y>80</y>
+        <width>41</width>
+        <height>18</height>
        </rect>
       </property>
       <property name="text">
@@ -404,10 +407,10 @@
      <widget class="QLabel" name="label_14">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>90</y>
-        <width>58</width>
-        <height>16</height>
+        <x>430</x>
+        <y>80</y>
+        <width>40</width>
+        <height>18</height>
        </rect>
       </property>
       <property name="text">
@@ -417,24 +420,21 @@
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>72</x>
-        <y>122</y>
+        <x>73</x>
+        <y>123</y>
         <width>782</width>
-        <height>281</height>
+        <height>321</height>
        </rect>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
        <item>
-        <widget class="QListWidget" name="ActivosBG"/>
+        <widget class="QListWidget" name="CapitalBG"/>
        </item>
        <item>
         <widget class="QListWidget" name="PasivoBG"/>
        </item>
        <item>
-        <widget class="QListWidget" name="CapitalBG"/>
-       </item>
-       <item>
-        <widget class="QListWidget" name="PasivoCapitalBG"/>
+        <widget class="QListWidget" name="ActivosBG"/>
        </item>
       </layout>
      </widget>
@@ -443,54 +443,27 @@
      <attribute name="title">
       <string>Estado de Resultados</string>
      </attribute>
-     <widget class="QLabel" name="label_7">
-      <property name="geometry">
-       <rect>
-        <x>620</x>
-        <y>90</y>
-        <width>131</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Estado de Resultados</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_21">
-      <property name="geometry">
-       <rect>
-        <x>600</x>
-        <y>140</y>
-        <width>91</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Gastos</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_20">
-      <property name="geometry">
-       <rect>
-        <x>350</x>
-        <y>40</y>
-        <width>91</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Ingresos</string>
-      </property>
-     </widget>
-     <widget class="QListWidget" name="estadoRList">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>263</x>
-        <y>83</y>
-        <width>256</width>
-        <height>431</height>
+        <y>40</y>
+        <width>258</width>
+        <height>381</height>
        </rect>
       </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QLabel" name="label_20">
+         <property name="text">
+          <string>Ingresos</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="estadoRList"/>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>

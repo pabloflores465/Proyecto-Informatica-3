@@ -2,9 +2,11 @@
 
 estadoResultados::estadoResultados()
 {
+    totalIngresos=0.00;
     utilidadBruta=0.00;
     utilidadAntesImpuestos=0.00;
     utilidadNeta=0.00;
+    isr=0.00;
 }
 
 void estadoResultados::setTotalIngresos(double _totalIngresos){
@@ -23,6 +25,10 @@ void estadoResultados::setUtilidadNeta(double _utilidadNeta){
     this->utilidadNeta=_utilidadNeta;
 }
 
+void estadoResultados::setIsr(double _isr){
+    this->isr=_isr;
+}
+
 double estadoResultados::getUtilidadBruta(){
     return utilidadBruta;
 }
@@ -37,4 +43,8 @@ double estadoResultados::getUtilidadNeta(){
 
 double estadoResultados::getTotalIngresos(){
     return totalIngresos;
+}
+
+double estadoResultados::getIsr(){
+    return isr;
 }

@@ -1,4 +1,7 @@
 #include "usuario.h"
+#include<iostream>
+
+using std::cout, std::endl;
 
 usuario::usuario()
 {
@@ -15,7 +18,7 @@ void usuario::insertAtTheFront(usuario **head,QString newNombre, QString newApel
    newUsuario->apellido=newApellido;
    newUsuario->nombreUsuario=newNombreUsuario;
    newUsuario->contrasena=newContrasena;
-
+   newUsuario->autorizado=false;
    //Put it in front of the current head
    newUsuario->next=*head;
    //Move the head of the list to point a new node
@@ -33,7 +36,65 @@ void usuario::insertAfter(usuario *previous,QString newNombre, QString newApelli
    newUsuario->apellido=newApellido;
    newUsuario->nombreUsuario=newNombreUsuario;
    newUsuario->contrasena=newContrasena;
+   newUsuario->autorizado=false;
    //Insert a New Node after previous
    newUsuario->next=previous->next;
    previous->next=newUsuario;
+}
+
+void usuario::printList(QListWidget *lista, usuario *primerUsuario){
+    primerUsuario=primerUsuario->next;
+    while(primerUsuario!=nullptr){
+       lista->addItem(primerUsuario->nombre);
+       lista->addItem(primerUsuario->apellido);
+       lista->addItem(primerUsuario->nombreUsuario);
+       lista->addItem(primerUsuario->contrasena);
+       primerUsuario=primerUsuario->next;
+    }
+}
+
+void usuario::autorizar(usuario *noUsuario, QString usuario, bool estado){
+    noUsuario=noUsuario->next;
+    while (noUsuario->nombreUsuario!=usuario&&noUsuario!=nullptr) {
+       noUsuario=noUsuario->next;
+    }
+    if (noUsuario!=nullptr){
+       noUsuario->autorizado=estado;
+    }
+
+}
+
+bool usuario::getEstado(usuario *noUsuario,QString usuario){
+
+
+    while (noUsuario->nombreUsuario!=usuario&&noUsuario!=nullptr) {
+       noUsuario=noUsuario->next;
+    }
+    return noUsuario->autorizado;
+}
+void usuario::printNode(QListWidget *lista, usuario *noUsuario, QString usuario){
+    while (noUsuario->nombreUsuario!=usuario&&noUsuario!=nullptr) {
+       noUsuario=noUsuario->next;
+    }
+    lista->addItem(noUsuario->nombre);
+    lista->addItem(noUsuario->apellido);
+    lista->addItem(noUsuario->nombreUsuario);
+    lista->addItem(noUsuario->contrasena);
+}
+
+void usuario::deleteFromList(QListWidget *lista, usuario *noUsuario, QString usuario){
+    int row=1;
+    while (noUsuario->nombreUsuario!=usuario&&noUsuario!=nullptr) {
+       noUsuario=noUsuario->next;
+       row++;
+    }
+    QListWidgetItem *nombre=lista->takeItem(row-2);
+    QListWidgetItem *apellido=lista->takeItem(row-1);
+    QListWidgetItem *nombreUsuario=lista->takeItem(row);
+    QListWidgetItem *contrasena=lista->takeItem(row+1);
+    delete nombre;
+    delete apellido;
+    delete nombreUsuario;
+    delete contrasena;
+
 }

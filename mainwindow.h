@@ -29,8 +29,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    int numeroCuenta=0;
-    void sumaCuentasLibroM(QComboBox *cuenta);
+    void sumaCuentasLibroM(QComboBox *cuenta, int numeroCuenta);
     void valoresDebe(QListWidget *clasificacion, int cuenta);
     void valoresHaber(QListWidget *clasificaion, int cuenta);
     void agregarAlMayor(QListWidget *clasificacion, int cuenta);

@@ -1,8 +1,13 @@
 #include "login.h"
 #include "ui_login.h"
 #include "mainwindow.h"
-
+#include <iostream>
 #include <QMessageBox>
+
+using std::cout;
+
+usuario user;
+usuario *currentUser=new usuario();
 
 Login::Login(QWidget *parent) :
     QDialog(parent),
@@ -80,3 +85,16 @@ void Login::on_verificarButton_clicked()
     }
     currentUser=firstUser;
 }
+
+void Login::on_verificarAdministrador_clicked()
+{
+    if(ui->usuarioAdmin->text()!=infoadmin.getAdminUsuario()||ui->contraAdmin->text()!=infoadmin.getadminContrasena()){
+        QMessageBox::information(this,"Error","El usuarios o la contraseña no son correctos");
+    }
+    else {
+        QMessageBox::information(this,"Éxito","Autorización Completada");
+        admin=new Administrador(this);
+        admin->show();
+    }
+}
+

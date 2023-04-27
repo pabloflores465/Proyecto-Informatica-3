@@ -7,15 +7,17 @@
 #include "estadoresultados.h"
 #include <iostream>
 #include <QString>
+#include <QMessageBox>
+#include <QCloseEvent>
+
+using std::cout,std::endl;
 
 documentacion docu;
 libroDiario libroD;
 libroMayor libroM;
-balanceGeneral balanceG;
-estadoResultados estadoR;
-
 const int cuentasTotales=20;
 const int cuentasIngresadas=100;
+int numeroPartida=0;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -43,14 +45,18 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
+//Módulo de Documentación
 void MainWindow::on_consultarButton_clicked(){
     ui->descripcionlist->addItem(docu.getCuenta((ui->cuentasCBox->currentIndex())));
     ui->descripcionlist->addItem(docu.getClasificacion((ui->cuentasCBox->currentIndex())));
     ui->descripcionlist->addItem(docu.getDescripcion((ui->cuentasCBox->currentIndex())));
 }
 
-void MainWindow::sumaCuentasLibroM(QComboBox *cuenta){
+//void MainWindow::
+//Funciones del Libro Mayor
+
+
+void MainWindow::sumaCuentasLibroM(QComboBox *cuenta, int numeroCuenta){
     if(libroD.documentacion::getClasificacion(cuenta->currentIndex())=="Activo"){
         if(libroD.getClasificacion(numeroCuenta)=="Debe"){
             libroM.setTotalCuenta(cuenta->currentIndex(), libroM.getTotalCuenta(cuenta->currentIndex())+libroD.getValor(numeroCuenta));
@@ -121,29 +127,50 @@ void MainWindow::agregarAlMayor(QListWidget *clasificacion, int cuenta){
 
 void MainWindow::on_anadirCuenta_clicked()
 {
+    balanceGeneral balanceG;
+    estadoResultados estadoR;
+
+    int totalDebe=0;
+    int totalHaber=0;
+    int numeroCuenta=0;
+
     //Libro Diario
     libroD.setCuenta(numeroCuenta, ui->cuenta1->currentText());
     libroD.setValor(numeroCuenta, ui->valor1->value());
     libroD.setClasificacion(numeroCuenta, ui->clasificacion1->currentText());
-    sumaCuentasLibroM(ui->cuenta1);
     numeroCuenta++;
     libroD.setCuenta(numeroCuenta, ui->cuenta2->currentText());
     libroD.setValor(numeroCuenta, ui->valor2->value());
     libroD.setClasificacion(numeroCuenta, ui->clasificacion2->currentText());
-    sumaCuentasLibroM(ui->cuenta2);
     numeroCuenta++;
     libroD.setCuenta(numeroCuenta, ui->cuenta3->currentText());
     libroD.setValor(numeroCuenta,ui->valor3->value());
     libroD.setClasificacion(numeroCuenta, ui->clasificacion3->currentText());
-    sumaCuentasLibroM(ui->cuenta3);
     numeroCuenta++;
     libroD.setCuenta(numeroCuenta, ui->cuenta4->currentText());
     libroD.setValor(numeroCuenta,ui->valor4->value());
     libroD.setClasificacion(numeroCuenta, ui->clasificacion4->currentText());
-    sumaCuentasLibroM(ui->cuenta4);
     numeroCuenta++;
 
+    for (int i = 0; i < numeroCuenta; ++i) {
+        if(libroD.getClasificacion(i)=="Debe"){
+            totalDebe=totalDebe+libroD.getValor(i);
+        }
+        else if(libroD.getClasificacion(i)=="Haber"){
+            totalHaber=totalHaber+libroD.getValor(i);
+        }
+    }
+
+    if(totalDebe!=totalHaber){
+        QMessageBox::information(this,"Error","Lo siento las partidas no cuadran");
+        return;
+    }
+
     //Libro Mayor
+    sumaCuentasLibroM(ui->cuenta1,numeroCuenta-4);
+    sumaCuentasLibroM(ui->cuenta2,numeroCuenta-3);
+    sumaCuentasLibroM(ui->cuenta3,numeroCuenta-2);
+    sumaCuentasLibroM(ui->cuenta4,numeroCuenta-1);
     ui->activosList->clear();
     ui->pasivosList->clear();
     ui->ingresosList->clear();
@@ -183,7 +210,7 @@ void MainWindow::on_anadirCuenta_clicked()
     ui->estadoRList->addItem(QString::number(estadoR.getUtilidadBruta()));
     estadoR.setUtilidadAntesImpuestos(estadoR.getUtilidadBruta());
     for (int i = 0; i < cuentasTotales; ++i) {
-        if(libroM.getClasificacion(i)=="Gasto"){
+        if(libroM.getClasificacion(i)=="Gasto"&&libroM.getCuenta(i)!="Costo de Ventas"){
             ui->estadoRList->addItem(libroM.getCuenta(i));
             ui->estadoRList->addItem(QString::number(libroM.getTotalCuenta(i)));
             estadoR.setUtilidadAntesImpuestos(estadoR.getUtilidadAntesImpuestos()-libroM.getTotalCuenta(i));
@@ -191,59 +218,67 @@ void MainWindow::on_anadirCuenta_clicked()
     }
     ui->estadoRList->addItem("Utilidad antes de impuestos");
     ui->estadoRList->addItem(QString::number(estadoR.getUtilidadAntesImpuestos()));
+
+    estadoR.setUtilidadNeta(estadoR.getUtilidadAntesImpuestos());
     if(estadoR.getUtilidadAntesImpuestos()<0){
-        estadoR.setUtilidadNeta(estadoR.getUtilidadAntesImpuestos());
+        estadoR.setIsr(0.00);
     }
     else if((estadoR.getUtilidadAntesImpuestos()/estadoR.getTotalIngresos())<=0.3){
-        estadoR.setUtilidadNeta(estadoR.getUtilidadAntesImpuestos()-(estadoR.getUtilidadAntesImpuestos()*0.25));
+        estadoR.setIsr(estadoR.getUtilidadAntesImpuestos()*0.25);
     }
     else if((estadoR.getUtilidadAntesImpuestos()/estadoR.getTotalIngresos())>0.3){
-        int excesoRenta=(estadoR.getUtilidadAntesImpuestos()-30000);
-        estadoR.setUtilidadNeta((300000*0.05)+(excesoRenta*0.07));
+        if (estadoR.getUtilidadAntesImpuestos()<30000){
+            estadoR.setIsr(estadoR.getUtilidadAntesImpuestos()*0.05);
+        }
+        else{
+            int excesoRenta=(estadoR.getUtilidadAntesImpuestos()-30000);
+            estadoR.setIsr((30000*0.05)+(excesoRenta*0.07));
+        }
     }
+    estadoR.setUtilidadNeta(estadoR.getUtilidadNeta()+estadoR.getIsr());
+    ui->estadoRList->addItem("ISR");
+    ui->estadoRList->addItem(QString::number(estadoR.getIsr()));
     ui->estadoRList->addItem("Utilidad Neta");
     ui->estadoRList->addItem(QString::number(estadoR.getUtilidadNeta()));
 
     //Balance General
 
-    balanceG.setTotalCapital(balanceG.getTotalCapital()+estadoR.getUtilidadNeta());
+    balanceG.setTotalCapital(balanceG.getTotalCapital()+estadoR.getUtilidadAntesImpuestos());
     ui->ActivosBG->clear();
     ui->PasivoBG->clear();
     ui->CapitalBG->clear();
-    for (int i = 0; i < cuentasTotales; i++) {
-       if(libroM.getClasificacion(i)=="Activo"){
+    for (int i = 0; i < cuentasTotales; ++i) {
+        if(libroM.getClasificacion(i)=="Activo"){
             ui->ActivosBG->addItem(libroM.getCuenta(i));
             ui->ActivosBG->addItem(QString::number(libroM.getTotalCuenta(i)));
             balanceG.setTotalActivos(balanceG.getTotalActivos()+libroM.getTotalCuenta(i));
 
-       }
-       else if(libroM.getClasificacion(i)=="Pasivo"&&libroM.getCuenta(i)!="Capital Social"){
+        }
+        else if(libroM.getClasificacion(i)=="Pasivo"&&libroM.getCuenta(i)!="Capital Social"){
             ui->PasivoBG->addItem(libroM.getCuenta(i));
             ui->PasivoBG->addItem(QString::number(libroM.getTotalCuenta(i)));
-            balanceG.setTotalPasivosCapital(balanceG.getTotalPasivos()+libroM.getTotalCuenta(i));
-       }
-       else if (libroM.getCuenta(i)=="Capital Social"){
+            balanceG.setTotalPasivos(balanceG.getTotalPasivos()+libroM.getTotalCuenta(i));
+        }
+        else if (libroM.getCuenta(i)=="Capital Social"){
             ui->CapitalBG->addItem(libroM.getCuenta(i));
             ui->CapitalBG->addItem(QString::number(libroM.getTotalCuenta(i)));
-            balanceG.setTotalCapital(balanceG.getTotalPasivosCapital()+libroM.getTotalCuenta(i));
-       }
+            balanceG.setTotalCapital(balanceG.getTotalCapital()+libroM.getTotalCuenta(i));
+        }
     }
+
+
 
     balanceG.setTotalPasivosCapital(balanceG.getTotalPasivos()+balanceG.getTotalCapital());
     ui->ActivosBG->addItem("Total de Activos");
     ui->ActivosBG->addItem(QString::number(balanceG.getTotalActivos()));
     ui->PasivoBG->addItem("Total de Pasivos");
     ui->PasivoBG->addItem(QString::number(balanceG.getTotalPasivos()));
-    ui->CapitalBG->addItem("Utilidad Neta");
-    ui->CapitalBG->addItem(QString::number(estadoR.getUtilidadNeta()));
+    ui->CapitalBG->addItem("Utilidad Antes de Impuestos");
+    ui->CapitalBG->addItem(QString::number(estadoR.getUtilidadAntesImpuestos()));
     ui->CapitalBG->addItem("Total de Capital");
     ui->CapitalBG->addItem(QString::number(balanceG.getTotalCapital()));
     ui->CapitalBG->addItem("Total de Pasivos y Capital");
     ui->CapitalBG->addItem(QString::number(balanceG.getTotalPasivosCapital()));
+
 }
-
-
-
-
-
 
