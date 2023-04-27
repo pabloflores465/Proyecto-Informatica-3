@@ -33,7 +33,7 @@ documentacion::documentacion()
     this->clasificacion[7]="Pasivo";
     this->clasificacion[8]="Pasivo";
     this->clasificacion[9]="Pasivo";
-    this->clasificacion[10]="Pasivo";
+    this->clasificacion[10]="Activo";
     this->clasificacion[11]="Pasivo";
     this->clasificacion[12]="Ingreso";
     this->clasificacion[13]="Gasto";

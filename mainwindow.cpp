@@ -30,8 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
 
     ui->setupUi(this);
-    //Permite Cerrar el Ui al presionar el log out
-    connect(ui->pushButton, &QPushButton::clicked, this, &QMainWindow::close);
+
 
     //for de libro diario
     for(int i=0;i<cuentasTotales;i++){
@@ -134,7 +133,7 @@ void MainWindow::agregarAlMayor(QListWidget *clasificacion, int cuenta){
 
 void MainWindow::on_anadirCuenta_clicked()
 {
-     QMessageBox::information(this,"Listo!","partida agregada");
+
     balanceGeneral balanceG;
     estadoResultados estadoR;
 
@@ -172,6 +171,10 @@ void MainWindow::on_anadirCuenta_clicked()
     if(totalDebe!=totalHaber){
         QMessageBox::information(this,"Error","Lo siento las partidas no cuadran");
         return;
+    }
+    else
+    {
+        QMessageBox::information(this,"Listo!","partida agregada");
     }
 
     //Libro Mayor
@@ -295,7 +298,7 @@ void MainWindow::on_pushButton_clicked()
 {
        lg= new Login(this);
        lg->show();
-       delete ui;
+       close();
 
 }
 
