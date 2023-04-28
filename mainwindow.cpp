@@ -296,9 +296,12 @@ void MainWindow::on_anadirCuenta_clicked()
 //Boton para cerrar sesión
 void MainWindow::on_pushButton_clicked()
 {
+        close();
        lg= new Login(this);
        lg->show();
-       close();
+
+       QMessageBox::information(this,"Informacion","Para proteger la información del usuario, no se guarda el progreso al cerrar sesión");
+
 
 }
 
