@@ -18,7 +18,7 @@ Administrador::Administrador(QWidget *parent) :
 
     ui->setupUi(this);
     user.printList(ui->usuariosNoUtorizados,currentUser);
-    user.printList(ui->editarUsuario,currentUser);
+    //user.printList(ui->editarUsuario,currentUser);
     ui->usuariosAutorizados->setCurrentItem(0);
 }
 

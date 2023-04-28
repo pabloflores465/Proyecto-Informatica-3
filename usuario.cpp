@@ -65,13 +65,12 @@ void usuario::autorizar(usuario *noUsuario, QString usuario, bool estado){
 }
 
 bool usuario::getEstado(usuario *noUsuario,QString usuario){
-
-
     while (noUsuario->nombreUsuario!=usuario&&noUsuario!=nullptr) {
        noUsuario=noUsuario->next;
     }
     return noUsuario->autorizado;
 }
+
 void usuario::printNode(QListWidget *lista, usuario *noUsuario, QString usuario){
     while (noUsuario->nombreUsuario!=usuario&&noUsuario!=nullptr) {
        noUsuario=noUsuario->next;
@@ -88,13 +87,14 @@ void usuario::deleteFromList(QListWidget *lista, usuario *noUsuario, QString usu
        noUsuario=noUsuario->next;
        row++;
     }
-    QListWidgetItem *nombre=lista->takeItem(row-2);
-    QListWidgetItem *apellido=lista->takeItem(row-1);
-    QListWidgetItem *nombreUsuario=lista->takeItem(row);
+
     QListWidgetItem *contrasena=lista->takeItem(row+1);
+    QListWidgetItem *nombreUsuario=lista->takeItem(row);
+    QListWidgetItem *apellido=lista->takeItem(row-1);
+    QListWidgetItem *nombre=lista->takeItem(row-2);
     delete nombre;
     delete apellido;
-    delete nombreUsuario;
     delete contrasena;
+    delete nombreUsuario;
 
 }

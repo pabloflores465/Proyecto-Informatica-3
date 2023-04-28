@@ -10,6 +10,8 @@ Login *lg;
 usuario user;
 usuario *currentUser=new usuario();
 
+using std::cout;
+
 Login::Login(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Login)
@@ -49,7 +51,7 @@ void Login::on_verificarButton2_clicked(){
 
 void Login::on_verificarButton_clicked()
 {
-    //Esta es una bandera para el primer usuario
+        //Esta es una bandera para el primer usuario
     usuario *firstUser=currentUser;
     bool verificacionCompletada=false;
     if (primerUsuarioCreado==false){
@@ -71,9 +73,12 @@ void Login::on_verificarButton_clicked()
         //con el else primero verifica los usuarios y luego las contraseñas
         else if(ui->contraLEdit->text()!=currentUser->contrasena){
             currentUser=currentUser->next;
-        }   
+
+        }
+        else if(currentUser->autorizado==false){
+            currentUser=currentUser->next;
+        }
         else
-            //if(user.getEstado(currentUser, ui->usuarioLEdit->text())==true)
         {
             QMessageBox::information(this,"Éxito","Autorizacion realizada con éxito");
 
@@ -87,7 +92,7 @@ void Login::on_verificarButton_clicked()
 
     }
     if (verificacionCompletada==false){
-        QMessageBox::information(this,"Error","Lo sentimos el usuario y/o contraseña no son válidos \n pruebe registrarse");
+        QMessageBox::information(this,"Error","Lo sentimos el usuario y/o contraseña no son válidos \n Pruebe Contactar al Administrador para que te de acceso.");
     }
     currentUser=firstUser;
 
