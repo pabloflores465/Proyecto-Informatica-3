@@ -71,10 +71,12 @@ void Login::on_verificarButton_clicked()
         //con el else primero verifica los usuarios y luego las contraseñas
         else if(ui->contraLEdit->text()!=currentUser->contrasena){
             currentUser=currentUser->next;
-        }
-        else{
+        }   
+        else
+            //if(user.getEstado(currentUser, ui->usuarioLEdit->text())==true)
+        {
             QMessageBox::information(this,"Éxito","Autorizacion realizada con éxito");
-            delete ui;
+
             close();
             mainW=new MainWindow(this);
             mainW->show();
